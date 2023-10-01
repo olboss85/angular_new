@@ -111,4 +111,11 @@ export class TaskStorageService {
 
     return highest;
   }
+
+  updateStatus(id: number, newStatus: "finished" | "pending" | "not started"): void {
+    const taskToUpdate = this.tasks.find(task => task.id === id);
+    if (taskToUpdate) {
+      taskToUpdate.status = newStatus;
+    }
+  }
 }

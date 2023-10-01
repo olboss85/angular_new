@@ -11,8 +11,8 @@ import { Router } from "@angular/router";
 export class TaskAddComponent {
   title = new FormControl("");
   note = new FormControl("");
-  status = new FormControl("");
-  difficulty = new FormControl("");
+  difficulty = new FormControl("1"); 
+  status = new FormControl("not started"); 
 
   constructor(private storage: TaskStorageService, private router: Router) {}
 

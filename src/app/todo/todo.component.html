@@ -1,4 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <button class="btn btn-success" [routerLink]="['/tasks/add']">New task</button>
 
 <div *ngIf="tasks && tasks.length > 0; else noTasks">
@@ -9,7 +8,7 @@
         <th>Task</th>
         <th>Note</th>
         <th>Status</th>
-        <th>Difficulty</th>
+        <th>Difficulty</th> 
         <th></th>
       </tr>
     </thead>
@@ -18,8 +17,13 @@
         <td>{{ task.id }}</td>
         <td>{{ task.title }}</td>
         <td>{{ task.note }}</td>
-        <td>{{ task.status }}</td>
-        <td>{{ task.difficulty }}</td>
+        <td> {{ task.status === 'not started' ? 'еще не начато' : task.status === 'finished' ? 'выполнено' : task.status }}
+        </td>
+        <td>
+          <span *ngFor="let i of [1,2,3,4,5]; let index = index" [class.filled]="i <= task.difficulty">
+            &#9733;
+          </span>
+        </td>
         <td>
           <button class="btn btn-light" [routerLink]="['/tasks/', task.id]">
             <i class="far fa-eye"></i>
@@ -40,5 +44,5 @@
 </div>
 
 <ng-template #noTasks>
-  <h2>Congratulations, you finished your list !</h2>
+  <h2>Congratulations, you finished your list!</h2>
 </ng-template>

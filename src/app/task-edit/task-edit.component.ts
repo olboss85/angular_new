@@ -15,7 +15,7 @@ export class TaskEditComponent implements OnInit {
   title = new FormControl("");
   note = new FormControl("");
   status = new FormControl("");
-  difficulty = new FormControl("");
+  difficulty = new FormControl("1");
 
   constructor(
     private storage: TaskStorageService,

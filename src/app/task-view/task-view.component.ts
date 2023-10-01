@@ -25,13 +25,13 @@ export class TaskViewComponent implements OnInit {
     });
   }
 
-  /**
-   * Remove the task from the list
-   *
-   * @param id task index to remove
-   */
   delete(id): void {
-    this.storage.delete(this.task.id);
+    // this.storage.delete(this.task.id);
     this.router.navigate(['/tasks'])
+  }
+
+  updateStatus(id: number): void {
+    this.storage.updateStatus(id, "finished");
+    this.router.navigate(['/tasks']);
   }
 }
